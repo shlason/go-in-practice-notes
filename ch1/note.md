@@ -1,4 +1,4 @@
-## Getting into Go
+# Getting into Go
 
 ---
 
