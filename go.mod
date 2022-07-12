@@ -3,6 +3,7 @@ module goipn
 go 1.18
 
 require (
+	github.com/braintree/manners v0.0.0-20160418043613-82a8879fc5fd // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.2 // indirect
 	github.com/jessevdk/go-flags v1.5.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect

@@ -20,5 +20,13 @@
 ### Environment variables
 > TODO: 待補充和了解
 
+### Graceful shutdown
+> TODO: 待補充和了解
+
+### signal.Notify 使用 buffered channel
+> TODO: 待補充和了解
+
 ### 參考來源
 [The Twelve-Factor App](https://12factor.net/)
+[為什麼 signal.Notify 要使用 buffered channel](https://blog.wu-boy.com/2021/03/why-use-buffered-channel-in-signal-notify/)
+[[Go 教學] 什麼是 graceful shutdown?](https://blog.wu-boy.com/2020/02/what-is-graceful-shutdown-in-golang/)
