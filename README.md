@@ -6,3 +6,5 @@
 #### [Ch1 - Getting into Go](https://github.com/shlason/go-in-practice-notes/tree/main/ch1)
 
 #### [Ch2 - A solid foundation](https://github.com/shlason/go-in-practice-notes/tree/main/ch2)
+
+#### [Ch3 - Concurrency in Go](https://github.com/shlason/go-in-practice-notes/tree/main/ch3)
