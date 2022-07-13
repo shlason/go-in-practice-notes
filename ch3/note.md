@@ -12,3 +12,10 @@ Go 所使用的 concurrency model
 
 當呼叫 goroutine 時，是和 Go 的 runtime 說如果可以的話快點幫我執行這個 function，**可能不會是立即執行**的。
 如果跑在單處器的機器上，幾乎可預期它不會立即執行。
+
+### 不要過度使用 Channel
+> TODO: 待補充和了解詳細
+
+- 對性能有所影響
+- 會增加 codebase 的複雜度
+- 記憶體佔用很多
