@@ -11,6 +11,15 @@ Go 官方表示不提供例外，是說到他們認為 try-catch-finally 會讓 
 
 Go 在設計上就鼓勵大家用 error 來明確地做錯誤檢查和相關處理，不過如果是巢狀深層的呼叫使用 panic 還是比較好回傳上去，但這樣的行為在 Go 中盡量以 pakcage 為一個範疇，並且可以的話在 package 內確實捕捉來轉為一個相對明確的 error 來回傳會更好。
 
+### Deferred functions
+>以下所指的“使用外部變數“皆是代表使用 deferred function 這個 scope 以外的變數
+- 一個 function 內雖然可以宣告多個 deferred function 但非必要情況下盡量不要
+- Deferred function 的呼叫順序是 LIFO
+- 盡可能放在 function 內相對的最上方
+- 若使用外部變數時，而那個變數的宣告又不是在 deferred function 之前，則會在編譯階段噴錯
+- 一些釋放資源的操作 (close files, network connnections 之類的) 盡量使用 deferred function 來處理最好，可確保當處理發生 errors 或 panic 時，也有正確處理到以釋放資源
+- Deferred function 內會形成一個閉包，當使用外部變數時會以參考的方式參考那個外部變數，所以等到 deferred function 開始執行時，它會使用到那個變數目前最新的狀態的值，而不是當初宣告時當下的值
+
 ### 參考來源
 [Why does Go not have exceptions? - Go FAQ](https://go.dev/doc/faq#exceptions)
 
