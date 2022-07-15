@@ -10,3 +10,5 @@
 #### [Ch3 - Concurrency in Go](https://github.com/shlason/go-in-practice-notes/tree/main/ch3)
 
 #### [Ch4 - Handling errors and panics](https://github.com/shlason/go-in-practice-notes/tree/main/ch4)
+
+#### [Ch5 - Debugging and testing](https://github.com/shlason/go-in-practice-notes/tree/main/ch5)
