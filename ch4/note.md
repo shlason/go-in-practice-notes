@@ -20,6 +20,16 @@ Go 在設計上就鼓勵大家用 error 來明確地做錯誤檢查和相關處�
 - 一些釋放資源的操作 (close files, network connnections 之類的) 盡量使用 deferred function 來處理最好，可確保當處理發生 errors 或 panic 時，也有正確處理到以釋放資源
 - Deferred function 內會形成一個閉包，當使用外部變數時會以參考的方式參考那個外部變數，所以等到 deferred function 開始執行時，它會使用到那個變數目前最新的狀態的值，而不是當初宣告時當下的值
 
+### Panics on goroutines
+呼叫 goroutine 時它們的 function call stack 會斷掉，goroutine 會自成一路變為最根層的那個，因此當在 goroutine 內發生 panic 時需要在裡面自己處理，不能依賴呼叫它的 function 來處理
+
+例如有個 call stack: func A -> func B -> go func C -> func D (panic)
+
+當 func D 發生 panic 時若自身又沒有特別處理 recovery，則會開始往回拋錯到 func C 而這時因為 goroutine 呼叫時自成一個新的 call stack，因此 func C 便是該 call stack 的 root 不會再繼續拋回給 func B，若 func C 也沒有處理 recovery 則會將整個程式退出 crash 掉
+
+### Handle panics
+若要寫一個 library 比較好的方式是將不管是 user 傳送的 callback function 或自身 library code 的相關 panic 問題，就在 library 內處理掉然後 log 出足夠豐富且有用的資訊以便後續修改或 debug，不要預期每個使用者都要知道或是他們可能不應該需要自己去處理這些例外
+
 ### 參考來源
 [Why does Go not have exceptions? - Go FAQ](https://go.dev/doc/faq#exceptions)
 
