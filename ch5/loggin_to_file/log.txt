@@ -1,0 +1,2 @@
+example 2022/07/15 19:45:21 main.go:14: This is a regular message.
+example 2022/07/15 19:45:21 main.go:15: This is a fatal error.
