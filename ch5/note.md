@@ -9,5 +9,10 @@
 > TODO: 待補充和了解詳細
 
 ### TCP, UDP log server 優劣
+> TODO: 待補充和了解詳細
 
 ### System loggers
+> TODO: 待補充和了解詳細
+
+### Generative testing
+> TODO: 待補充和了解詳細
